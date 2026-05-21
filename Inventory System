@@ -1,0 +1,57 @@
+Code: 
+        GENERATE    18,6            ; Customers arrive every 18 +/- 6 minutes 
+        QUEUE       Line            ; Enter the line (queue) 
+ 
+        SEIZE       Worker1         ; Capture the first worker (server) 
+        SEIZE       Worker2         ; Capture the second worker (server) 
+        SEIZE       Worker3         ; Capture the third worker (server) 
+ 
+        DEPART      Line            ; Leave the line after being served 
+        ADVANCE     16,4            ; Use the worker (service time) 16 +/- 4 minutes 
+        RELEASE     Worker1         ; Free the first worker (server) 
+        RELEASE     Worker2         ; Free the second worker (server) 
+        RELEASE     Worker3         ; Free the third worker (server) 
+        TERMINATE                   ; Customer leaves after service 
+ 
+        GENERATE    240             ; Restocking arrives every 240 minutes (4 hours) 
+        SEIZE       Inventory       ; Seize inventory space 
+        ADVANCE     0,0             ; Restocking time is immediate (no delay) 
+        RELEASE     Inventory       ; Release restocked inventory 
+        TERMINATE                   ; End restocking transaction 
+
+        GENERATE    480             
+        TERMINATE   1               
+
+        START  1               
+
+Aim
+To simulate an inventory management system using GPSS and study storage handling and customer servicing.
+
+Theory
+An Inventory System is used to manage goods, materials, or products stored in a warehouse or shop. 
+The main objective of inventory management is to maintain proper stock levels while minimizing shortages and delays.
+In this experiment, customers or product requests arrive at the system. If inventory resources are available, the request is processed immediately. Otherwise, the request waits until storage becomes available.
+The GENERATE block creates customer requests. The QUEUE block stores requests in the waiting line. 
+The ENTER block allows the transaction to enter the storage area if space is available. The LEAVE block releases the storage after processing.
+The ADVANCE block represents the processing time for inventory handling.
+The STORAGE block defines the total storage capacity available in the system.
+
+Applications:
+
+Warehouse management
+Retail inventory systems
+Supply chain management
+Manufacturing industries
+Online shopping systems
+
+Advantages:
+
+Reduces stock shortages
+Improves storage management
+Helps in planning resources
+Increases operational efficiency
+
+Conclusion
+
+Thus, the simulation of an inventory system was successfully performed using GPSS. 
+The experiment helped in understanding storage allocation, inventory handling, and processing of requests. The output showed storage utilization and queue statistics.
