@@ -1,0 +1,62 @@
+Code: 
+
+        GENERATE    20             ; Products arrive every 20 minutes (mean) 
+        QUEUE       QCQueue        ; Enter the quality control queue 
+ 
+        SEIZE       Worker1        ; Capture the first worker (server) 
+        SEIZE       Worker2        ; Capture the second worker (server) 
+        SEIZE       Worker3        ; Capture the third worker (server) 
+ 
+        DEPART      QCQueue        ; Leave the queue after being inspected 
+        ADVANCE     12             ; Quality check time of 12 minutes (mean) 
+        RELEASE     Worker1        ; Free the first worker (server) 
+        RELEASE     Worker2        ; Free the second worker (server) 
+        RELEASE     Worker3        ; Free the third worker (server) 
+        TERMINATE                   ; Product leaves after inspection 
+ 
+        GENERATE    300            ; Restocking arrives every 300 minutes (5 hours) 
+        SEIZE       Inventory      ; Seize inventory space 
+        ADVANCE     0              ; Restocking time is immediate (no delay) 
+        RELEASE     Inventory      ; Release restocked inventory 
+        TERMINATE                   ; End restocking transaction 
+ 
+        GENERATE    480            ; Timer arrives after 480 minutes (8 hours) 
+        TERMINATE   1              ; End the simulation after 480 minutes 
+ 
+        START       1              ; Start the simulation run
+
+Aim
+To simulate a quality control system using GPSS and study the inspection process using multiple machines.
+
+Theory
+A Quality Control System is used in industries to inspect products and ensure that they meet required quality standards before delivery to customers.
+In this simulation, products arrive for inspection and enter a waiting queue. Multiple machines or workers perform quality checks on the products. If all machines are busy, products wait in the queue.
+The GENERATE block creates products. The QUEUE block stores products in the waiting line. The SEIZE block assigns inspection machines to the products. 
+The DEPART block removes the products from the queue when inspection starts.
+The ADVANCE block represents inspection time. The RELEASE block frees the machine after inspection.
+
+The simulation helps in analyzing:
+
+Machine utilization
+Queue length
+Product waiting time
+Inspection efficiency
+
+Applications:
+
+Manufacturing industries
+Automobile industries
+Electronics industries
+Pharmaceutical industries
+
+Advantages:
+
+Improves product quality
+Reduces defective products
+Increases customer satisfaction
+Enhances production efficiency
+
+Conclusion
+
+Thus, the simulation of a quality control system was successfully implemented using GPSS. 
+The experiment demonstrated the use of multiple machines for inspection and showed how queues and service times affect system performance.
