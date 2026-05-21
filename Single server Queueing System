@@ -1,0 +1,37 @@
+Code
+SIMULATE
+
+
+GENERATE 4,1
+ADVANCE 1
+SEIZE WINDO
+ADVANCE 4,3
+RELEASE WINDO
+TERMINATE 1
+
+
+START 250
+
+Aim
+To simulate a single server single queueing system using GPSS and study customer waiting time, service time, and server utilization.
+
+Theory
+A Single Server Single Queueing System is one of the most basic models used in simulation. 
+In this system, customers arrive one by one and wait in a single queue until the server becomes free. Only one customer can receive service at a time. 
+This type of system is commonly used in banks, barber shops, ticket counters, hospital reception desks, and billing counters.
+In GPSS simulation, transactions represent customers. The GENERATE block is used to create customers at specific time intervals. 
+The QUEUE block stores the arriving customers in a waiting line. The SEIZE block allows a customer to occupy the server or facility. 
+If the server is busy, the customer waits in the queue. After getting service, the customer leaves the system using the TERMINATE block.
+The ADVANCE block represents the service time taken by the server. The RELEASE block frees the server after the service is completed so that the next customer can be served.
+This simulation helps in understanding:
+
+Waiting time of customers
+Server utilization
+Queue length
+Average service time
+System performance
+
+Conclusion
+Thus, the simulation of a single server single queueing system was successfully performed using GPSS. 
+The experiment helped in understanding how customers wait in a queue and receive service from a single server. 
+The output report showed the server utilization, average waiting time, and queue statistics.
