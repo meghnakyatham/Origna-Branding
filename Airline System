@@ -1,0 +1,50 @@
+Code: 
+
+        GENERATE    5            ; A new passenger arrives every 5 minutes (mean) 
+        QUEUE       CheckInQ     ; Queue for check-in 
+        SEIZE       CheckIn      ; Seize a check-in counter 
+        DEPART      CheckInQ     ; Leave the check-in queue 
+        ADVANCE     4            ; Takes 4 minutes to check in 
+        RELEASE     CheckIn      ; Free the counter 
+        QUEUE       SecurityQ    ; Queue for security 
+        SEIZE       Security     ; Seize a security checkpoint 
+        DEPART      SecurityQ    ; Leave the security queue 
+        ADVANCE     3            ; Takes 3 minutes for security 
+        RELEASE     Security     ; Release the checkpoint 
+        ADVANCE     2            ; Takes 2 minutes to reach the gate 
+        TERMINATE                ; Passenger completes the process 
+CheckIn      EQU     10000       ; Check-in counter 
+Security     EQU     10001       ; Security checkpoint 
+ 
+        GENERATE    480          ; End simulation after 8 hours 
+        TERMINATE   1 
+ 
+        START       1
+
+Aim
+To simulate an airline passenger processing system using GPSS.
+
+Theory
+An Airline Passenger Processing System is used to model passenger movement through airport activities such as check-in, security checking, and boarding.
+Passengers arrive at the airport and first enter the check-in queue. After check-in, they move to the security checking area and finally proceed towards the boarding gate.
+The GENERATE block creates passengers. The QUEUE block manages passenger waiting lines. The SEIZE block allocates resources such as check-in counters and security counters.
+The ADVANCE block represents processing time at each stage. The RELEASE block frees the resources after service completion.
+
+This simulation helps in analyzing:
+
+Passenger waiting time
+Check-in counter utilization
+Security system performance
+Airport operational efficiency
+
+Applications:
+
+Airport management systems
+Passenger flow analysis
+Transportation systems
+Security management systems
+
+Conclusion
+
+Thus, the simulation of an airline passenger processing system was successfully implemented using GPSS. 
+The experiment helped in understanding passenger movement through different stages of airport processing and analyzing resource utilization.
