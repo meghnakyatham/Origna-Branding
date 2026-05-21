@@ -1,19 +1,18 @@
 Code: 
 
-GENERATE    6            ; A customer arrives every 6 minutes 
-QUEUE       BillingQ     ; Join billing queue 
-SEIZE       Billing      ; Seize a billing counter 
-DEPART      BillingQ     ; Leave the billing queue 
-ADVANCE     5            ; Takes 5 minutes to bill items 
-RELEASE     Billing      ; Release the billing counter 
-ADVANCE     2      
-TERMINATE         
-Billing     EQU     10000 
-GENERATE    480 
+GENERATE 6
+QUEUE BillingQ
+SEIZE Billing
+DEPART BillingQ
+ADVANCE 5
+RELEASE Billing
+ADVANCE 2
+TERMINATE
 
-TERMINATE   1 
+GENERATE 480
+TERMINATE 1
 
-START       1
+START 1
 
 Aim
 To simulate a supermarket billing system using GPSS.
