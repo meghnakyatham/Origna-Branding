@@ -1,0 +1,3209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORIGNA — Taste Has An Origin</title>
+  <meta name="description" content="ORIGNA is the trusted bridge bringing exceptional international chocolates, coffee, spreads and gourmet products to India. Sourced globally, curated with care.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --cream: #FAF6F0;
+      --cream-dark: #F3ECE0;
+      --cacao: #1C120C;
+      --cacao-light: #2C1F18;
+      --plum: #3B1F2B;
+      --plum-dark: #2B131E;
+      --olive: #3D4A3E;
+      --sand: #E8DCC4;
+      --gold: #C5A880;
+      --gold-dark: #A58B65;
+      
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Inter', sans-serif;
+      --mono: 'Space Mono', monospace;
+      --ease: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--cream);
+      color: var(--cacao);
+    }
+
+    body {
+      font-family: var(--sans);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--cacao);
+    }
+
+    /* Utility Styles */
+    .wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 6vw, 80px);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--serif);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    em {
+      font-family: var(--serif);
+      font-style: italic;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow::after {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background-color: var(--gold);
+      display: inline-block;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 0;
+      border: 1px solid var(--cacao);
+      background: transparent;
+      color: var(--cacao);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.4s var(--ease);
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--cacao);
+      color: var(--cream);
+    }
+
+    .btn-white {
+      border-color: var(--cream);
+      color: var(--cream);
+    }
+
+    .btn-white:hover {
+      background: var(--cream);
+      color: var(--cacao);
+    }
+
+    .btn-gold {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold);
+      color: var(--cacao);
+    }
+
+    section {
+      padding: clamp(60px, 10vw, 140px) 0;
+      position: relative;
+    }
+
+    .dark-section {
+      background-color: var(--cacao);
+      color: var(--cream);
+    }
+
+    .plum-section {
+      background-color: var(--plum);
+      color: var(--cream);
+    }
+
+    /* Header Nav */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px clamp(24px, 6vw, 80px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(28, 18, 12, 0.4), transparent);
+      transition: background 0.4s ease;
+    }
+
+    header.scrolled {
+      background: rgba(28, 18, 12, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      letter-spacing: 0.2em;
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+    }
+
+    nav a {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250, 246, 240, 0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--cream);
+    }
+
+    .nav-cta {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 8px 18px;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--cacao);
+    }
+
+    /* 01. Opening — Full-bleed Hero with Background Image */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: var(--cacao);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.04);
+      transition: transform 8s var(--ease);
+      filter: brightness(0.72) saturate(0.9);
+    }
+
+    .hero.loaded .hero-bg img {
+      transform: scale(1);
+    }
+
+    /* Multi-stop cinematic overlay */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to right, rgba(28, 18, 12, 0.88) 0%, rgba(28, 18, 12, 0.55) 55%, rgba(28, 18, 12, 0.15) 100%),
+        linear-gradient(to top, rgba(28, 18, 12, 0.65) 0%, transparent 50%);
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(120px, 14vw, 200px) clamp(40px, 8vw, 120px) clamp(80px, 10vw, 140px);
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.8rem, 8.5vw, 7.8rem);
+      line-height: 1.0;
+      color: var(--cream);
+      letter-spacing: -0.01em;
+      font-weight: 300;
+      margin-bottom: 28px;
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.4s var(--ease) 0.15s, transform 1.4s var(--ease) 0.15s;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 28px;
+      opacity: 0;
+      transition: opacity 1.2s var(--ease) 0.4s, width 1.2s var(--ease) 0.4s;
+    }
+
+    .hero p {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      font-style: italic;
+      color: rgba(250, 246, 240, 0.75);
+      margin-bottom: 52px;
+      max-width: 520px;
+      line-height: 1.65;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s var(--ease) 0.5s, transform 1.2s var(--ease) 0.5s;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1.2s var(--ease) 0.7s, transform 1.2s var(--ease) 0.7s;
+    }
+
+    .hero-ctas .btn-text {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(250, 246, 240, 0.8);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 3px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .hero-ctas .btn-text:hover {
+      color: var(--gold);
+    }
+
+    /* Bottom strip */
+    .hero-bottom-strip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(197, 168, 128, 0.2);
+      z-index: 3;
+    }
+
+    .hero-coords {
+      position: absolute;
+      bottom: 28px;
+      left: clamp(40px, 8vw, 120px);
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      color: rgba(250, 246, 240, 0.3);
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 1s var(--ease) 1s;
+    }
+
+    .hero-scroll-line {
+      position: absolute;
+      bottom: 0;
+      right: 80px;
+      width: 1px;
+      height: 80px;
+      background: rgba(250, 246, 240, 0.12);
+      z-index: 3;
+      overflow: hidden;
+    }
+
+    .hero-scroll-line::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: var(--gold);
+      animation: scrollLine 2.5s infinite var(--ease);
+    }
+
+    @keyframes scrollLine {
+      0% { transform: translateY(-100%); }
+      80% { transform: translateY(200%); }
+      100% { transform: translateY(200%); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-left {
+        padding: clamp(120px, 18vw, 160px) 32px 80px;
+        max-width: 100%;
+      }
+      .hero-scroll-line {
+        right: 24px;
+      }
+      .hero-overlay {
+        background:
+          linear-gradient(to bottom, rgba(28, 18, 12, 0.75) 0%, rgba(28, 18, 12, 0.55) 60%, rgba(28, 18, 12, 0.8) 100%);
+      }
+    }
+
+    /* 02. The Origna Idea */
+    .origna-idea {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .idea-text-left h2 {
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      line-height: 1.1;
+      color: var(--cacao);
+    }
+
+    .idea-text-right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .idea-text-right p {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      line-height: 1.5;
+      color: var(--cacao-light);
+    }
+
+    .idea-text-right p.body {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(28, 18, 12, 0.7);
+    }
+
+    .idea-image {
+      grid-column: span 2;
+      margin-top: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .idea-image img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      filter: grayscale(15%);
+    }
+
+    /* 03. The Origin Map */
+    .origin-map-sec {
+      background-color: var(--cream-dark);
+      text-align: center;
+    }
+
+    .map-header {
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+
+    .map-header h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      margin-bottom: 16px;
+    }
+
+    .map-header p {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 40px;
+      border: 1px solid var(--sand);
+    }
+
+    .world-map-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .map-dot {
+      cursor: pointer;
+      transition: fill 0.3s, r 0.3s;
+    }
+
+    .map-dot:hover, .map-dot.active {
+      fill: var(--plum);
+      r: 8;
+    }
+
+    .map-dot.india {
+      fill: var(--gold);
+      r: 9;
+    }
+
+    .route-line {
+      fill: none;
+      stroke: var(--plum);
+      stroke-width: 1.5;
+      stroke-dasharray: 6, 6;
+      stroke-dashoffset: 0;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .route-line.active {
+      opacity: 1;
+      animation: drawRoute 20s linear infinite;
+    }
+
+    @keyframes drawRoute {
+      to { stroke-dashoffset: -200; }
+    }
+
+    /* Origin Selector / Cards */
+    .map-selector {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .map-sel-btn {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid var(--sand);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .map-sel-btn:hover, .map-sel-btn.active {
+      background: var(--cacao);
+      color: var(--cream);
+      border-color: var(--cacao);
+    }
+
+    .map-story-card {
+      margin-top: 40px;
+      background: var(--cream);
+      border: 1px solid var(--sand);
+      padding: 30px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s, transform 0.5s;
+      display: none;
+    }
+
+    .map-story-card.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .map-story-card h4 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .map-story-card .country-meta {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--gold-dark);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .map-story-card p {
+      font-size: 0.9rem;
+      color: rgba(28, 18, 12, 0.75);
+      line-height: 1.7;
+    }
+
+    .map-route-text {
+      margin-top: 20px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--plum);
+      font-weight: bold;
+    }
+
+    /* 04. What Origna Actually Does (Sticky Timeline) */
+    .journey-sec {
+      position: relative;
+      height: 380vh; /* Controlled scroll length */
+      background: var(--cream);
+    }
+
+    .journey-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .journey-header {
+      margin-bottom: 60px;
+    }
+
+    .journey-track-container {
+      width: 100%;
+      position: relative;
+    }
+
+    .journey-track {
+      display: flex;
+      gap: 40px;
+      padding-left: clamp(24px, 6vw, 80px);
+      width: max-content;
+      transition: transform 0.1s linear;
+    }
+
+    .journey-card {
+      width: clamp(280px, 22vw, 360px);
+      flex-shrink: 0;
+      background: #ffffff;
+      border: 1px solid var(--sand);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 400px;
+      position: relative;
+    }
+
+    .journey-card .step-num {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+
+    .journey-card h3 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .journey-card p {
+      font-size: 0.88rem;
+      color: rgba(28, 18, 12, 0.65);
+      line-height: 1.7;
+    }
+
+    .journey-progress-bar {
+      position: absolute;
+      bottom: 8vh;
+      left: clamp(24px, 6vw, 80px);
+      width: calc(100% - 2 * clamp(24px, 6vw, 80px));
+      height: 2px;
+      background: rgba(28, 18, 12, 0.1);
+    }
+
+    .journey-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--cacao);
+      transition: width 0.1s linear;
+    }
+
+    /* 05. The Origna Standard */
+    .standard-header {
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+
+    .standard-header h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      margin-bottom: 16px;
+    }
+
+    .standard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .standard-card {
+      background: var(--cacao-light);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 30px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.5s var(--ease);
+    }
+
+    .standard-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--gold-dark);
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.5s var(--ease);
+    }
+
+    .standard-card * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .standard-card .card-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      transition: color 0.5s;
+    }
+
+    .standard-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      transition: color 0.5s;
+    }
+
+    .standard-card p {
+      font-size: 0.85rem;
+      color: rgba(250, 246, 240, 0.6);
+      line-height: 1.6;
+      transition: color 0.5s;
+    }
+
+    .standard-card .hidden-info {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--cacao);
+      font-size: 1.1rem;
+      line-height: 1.4;
+      transition: opacity 0.5s, max-height 0.5s;
+      margin-top: 16px;
+    }
+
+    /* Standard Card Hover Interactions */
+    .standard-card:hover {
+      background: var(--gold);
+      transform: translateY(-8px);
+    }
+
+    .standard-card:hover .card-label {
+      color: var(--cacao);
+    }
+
+    .standard-card:hover h3 {
+      color: var(--cacao);
+    }
+
+    .standard-card:hover p {
+      color: rgba(28, 18, 12, 0.8);
+    }
+
+    .standard-card:hover .hidden-info {
+      opacity: 1;
+      max-height: 80px;
+    }
+
+    /* 06. The World, Curated */
+    .curated-header {
+      margin-bottom: 60px;
+    }
+
+    .curated-header h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    }
+
+    .curated-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .curated-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border: 1px solid var(--sand);
+      cursor: pointer;
+    }
+
+    .curated-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%);
+      transition: transform 0.8s var(--ease);
+    }
+
+    .curated-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28, 18, 12, 0.9) 0%, rgba(28, 18, 12, 0.2) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      color: var(--cream);
+      z-index: 2;
+    }
+
+    .curated-card-overlay span {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .curated-card-overlay h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      transition: transform 0.5s var(--ease);
+    }
+
+    .curated-card-overlay p {
+      font-size: 0.82rem;
+      color: rgba(250, 246, 240, 0.7);
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+    }
+
+    .curated-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .curated-card:hover .curated-card-overlay h3 {
+      transform: translateY(-8px);
+    }
+
+    .curated-card:hover .curated-card-overlay p {
+      opacity: 1;
+      transform: translateY(-8px);
+    }
+
+    /* 07. Chocolate — Hero Category */
+    .choc-section-header {
+      max-width: 700px;
+      margin-bottom: 60px;
+    }
+
+    .choc-section-header h2 {
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .choc-section-header p {
+      color: var(--sand);
+      font-family: var(--serif);
+      font-size: 1.3rem;
+    }
+
+    .choc-scroller {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 20px;
+    }
+
+    .choc-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .choc-story-card {
+      width: clamp(340px, 30vw, 420px);
+      flex-shrink: 0;
+      background: var(--plum-dark);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .choc-story-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .choc-story-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .choc-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 12px;
+    }
+
+    .choc-country {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .choc-brand {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+
+    .choc-details h4 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .choc-details p {
+      font-size: 0.85rem;
+      color: rgba(250, 246, 240, 0.65);
+      margin-bottom: 16px;
+    }
+
+    .choc-flavour-tag {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+
+    /* 08. Meet The Makers */
+    .makers-header {
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+
+    .makers-header h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    }
+
+    .makers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .maker-card {
+      background: var(--cream-dark);
+      border: 1px solid var(--sand);
+      padding: 30px;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.4s var(--ease);
+      cursor: pointer;
+    }
+
+    .maker-card:hover {
+      background: var(--cacao);
+      color: var(--cream);
+      border-color: var(--cacao);
+    }
+
+    .maker-card .maker-role {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+    }
+
+    .maker-card h3 {
+      font-size: 1.8rem;
+      margin-top: 40px;
+      margin-bottom: 12px;
+    }
+
+    .maker-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: rgba(28, 18, 12, 0.7);
+      transition: color 0.4s;
+    }
+
+    .maker-card:hover p {
+      color: rgba(250, 246, 240, 0.7);
+    }
+
+    .maker-card .maker-origin-tag {
+      margin-top: auto;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      text-transform: uppercase;
+      padding-top: 20px;
+      border-top: 1px solid rgba(28, 18, 12, 0.06);
+      transition: border-color 0.4s;
+    }
+
+    .maker-card:hover .maker-origin-tag {
+      border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .makers-cta-row {
+      margin-top: 40px;
+      text-align: right;
+    }
+
+    /* 09. India × The World Split Section */
+    .split-sec {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      background: var(--cacao);
+      gap: 2px;
+    }
+
+    .split-panel {
+      /* Give plenty of horizontal padding so text doesn't slide under the center badge */
+      padding: clamp(80px, 10vw, 140px) clamp(40px, 5vw, 72px);
+      /* Extra inner-edge padding keeps text away from the vertical seam */
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 85vh;
+      overflow: hidden;
+    }
+
+    /* Push left panel content away from center seam */
+    .split-panel:first-child {
+      padding-right: clamp(60px, 8vw, 120px);
+    }
+    /* Push right panel content away from center seam */
+    .split-panel:last-child {
+      padding-left: clamp(60px, 8vw, 120px);
+    }
+
+    .split-panel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+      z-index: 0;
+      filter: grayscale(20%);
+      transition: transform 1.2s var(--ease), opacity 0.6s;
+    }
+
+    .split-panel:hover img {
+      transform: scale(1.04);
+      opacity: 0.4;
+    }
+
+    .split-panel-content {
+      position: relative;
+      z-index: 2;
+      color: var(--cream);
+      /* Content box does not extend to edge — badge lives independently */
+    }
+
+    .split-panel-content h3 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 16px;
+      line-height: 1.2;
+      font-weight: 300;
+    }
+
+    .split-panel-content p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: rgba(250, 246, 240, 0.78);
+      max-width: 400px;
+    }
+
+    /* Thin vertical divider line */
+    .split-divider {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 100%;
+      background: rgba(197, 168, 128, 0.2);
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    /* Center badge — floats on the divider seam, does NOT cover panel text */
+    .split-divider-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      background: var(--plum);
+      color: var(--cream);
+      border: 1px solid var(--gold);
+      padding: 22px 28px;
+      text-align: center;
+      pointer-events: none;
+      white-space: nowrap;
+      /* Subtle shadow so badge reads clearly over both panels */
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    .split-divider-label h4 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    .split-divider-label p {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    /* On smaller screens, stack vertically and show badge between the panels */
+    @media (max-width: 1024px) {
+      .split-sec {
+        grid-template-columns: 1fr;
+      }
+      .split-panel {
+        min-height: 60vh;
+        padding: clamp(60px, 8vw, 100px) clamp(32px, 6vw, 60px);
+      }
+      .split-panel:first-child,
+      .split-panel:last-child {
+        padding-left: clamp(32px, 6vw, 60px);
+        padding-right: clamp(32px, 6vw, 60px);
+      }
+      .split-divider {
+        display: none;
+      }
+      .split-divider-label {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 0 auto;
+        display: block;
+        box-shadow: none;
+      }
+    }
+
+    /* 10. Branding Image Wall */
+    .image-wall-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .image-wall-header h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    }
+
+    .image-wall-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(140px, auto);
+      gap: 30px;
+    }
+
+    .wall-item {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--sand);
+      background: var(--cream-dark);
+    }
+
+    .wall-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(10%);
+      transition: transform 0.6s var(--ease);
+    }
+
+    .wall-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .wall-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(28, 18, 12, 0.85);
+      color: var(--cream);
+      padding: 8px 16px;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .item-col-6 { grid-column: span 6; }
+    .item-col-4 { grid-column: span 4; }
+    .item-col-3 { grid-column: span 3; }
+    .item-col-8 { grid-column: span 8; }
+    .item-col-5 { grid-column: span 5; }
+    .item-col-7 { grid-column: span 7; }
+
+    .item-row-2 { grid-row: span 2; }
+    .item-row-3 { grid-row: span 3; }
+
+    /* 11. Poster Series — Real Image Cards */
+    .poster-sec {
+      background: var(--cacao);
+      padding: clamp(60px, 8vw, 100px) 0;
+    }
+
+    .poster-sec .wrap h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      color: var(--cream);
+    }
+
+    .poster-sec .eyebrow {
+      color: var(--gold);
+    }
+
+    .poster-scroller {
+      display: flex;
+      gap: 28px;
+      overflow-x: auto;
+      padding: 20px clamp(24px, 6vw, 80px) 40px;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+
+    .poster-scroller:active {
+      cursor: grabbing;
+    }
+
+    .poster-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .poster-img-card {
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(197, 168, 128, 0.15);
+      transition: transform 0.5s var(--ease);
+    }
+
+    .poster-img-card:hover {
+      transform: scale(1.02);
+    }
+
+    .poster-img-card img {
+      display: block;
+      height: 680px;
+      width: auto;
+      object-fit: cover;
+      filter: none;
+      transition: transform 0.8s var(--ease);
+    }
+
+    .poster-img-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .poster-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 24px;
+      background: linear-gradient(to top, rgba(28,18,12,0.8), transparent);
+      color: var(--cream);
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .poster-img-card:hover .poster-img-caption {
+      opacity: 1;
+    }
+
+    /* 12. Why Trust Origna Section */
+    .trust-sec {
+      background: var(--cream);
+    }
+
+    .trust-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+    }
+
+    .trust-left {
+      position: sticky;
+      top: 120px;
+      height: fit-content;
+    }
+
+    .trust-left h2 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 1.15;
+    }
+
+    .trust-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .trust-stack-card {
+      background: #ffffff;
+      border: 1px solid var(--sand);
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(28, 18, 12, 0.02);
+      position: sticky;
+      top: 140px;
+    }
+
+    .trust-stack-card .card-num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gold-dark);
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .trust-stack-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .trust-stack-card p {
+      font-size: 0.9rem;
+      color: rgba(28, 18, 12, 0.7);
+      line-height: 1.7;
+    }
+
+    /* 13. If You Like This (Interactive Discovery) */
+    .discovery-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .discovery-header h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    }
+
+    .discovery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .flavour-card {
+      border: 1px solid var(--sand);
+      background: #ffffff;
+      padding: 30px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      aspect-ratio: 1/1;
+    }
+
+    .flavour-card:hover, .flavour-card.active {
+      background: var(--plum);
+      color: var(--cream);
+      border-color: var(--plum);
+    }
+
+    .flavour-card h4 {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .discovery-results {
+      min-height: 240px;
+      background: var(--cream-dark);
+      border: 1px solid var(--sand);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .disc-item {
+      background: #ffffff;
+      padding: 24px;
+      border: 1px solid var(--sand);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+    }
+
+    .disc-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .disc-item .disc-meta {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+
+    .disc-item h5 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .disc-item p {
+      font-size: 0.8rem;
+      color: rgba(28, 18, 12, 0.6);
+      margin-bottom: 12px;
+    }
+
+    .disc-item .disc-link {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--cacao);
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+
+    /* 14. The Origna World */
+    .origna-world-sec {
+      background: var(--cacao);
+      color: var(--cream);
+      overflow: hidden;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .world-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+      position: relative;
+    }
+
+    .world-left h2 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.1;
+      margin-bottom: 40px;
+    }
+
+    .world-right-floating {
+      position: relative;
+      height: 500px;
+    }
+
+    .floating-card {
+      position: absolute;
+      background: var(--cacao-light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 24px;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--cream);
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s linear, border-color 0.3s;
+    }
+
+    .floating-card:hover {
+      border-color: var(--gold);
+    }
+
+    /* Layout coordinates for floaters */
+    .fc-1 { top: 10%; left: 10%; }
+    .fc-2 { top: 25%; right: 15%; }
+    .fc-3 { top: 45%; left: 20%; }
+    .fc-4 { top: 60%; right: 25%; }
+    .fc-5 { bottom: 10%; left: 15%; }
+    .fc-6 { top: 5%; right: 30%; }
+
+    /* 15. Brand Manifesto */
+    .manifesto-sec {
+      background-color: var(--cream);
+      text-align: center;
+      padding: 140px 0;
+    }
+
+    .manifesto-text {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .manifesto-text p {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      line-height: 1.6;
+      color: var(--cacao-light);
+      font-weight: 300;
+    }
+
+    .manifesto-text p em {
+      color: var(--gold-dark);
+    }
+
+    .manifesto-footer-line {
+      margin-top: 60px;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--cacao);
+    }
+
+    /* 16. Final Brand CTA */
+    .final-cta-sec {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--cacao);
+    }
+
+    .final-cta-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .final-cta-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      filter: grayscale(10%);
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 2;
+      color: var(--cream);
+      max-width: 700px;
+    }
+
+    .final-cta-content h2 {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      line-height: 1.15;
+      margin-bottom: 40px;
+    }
+
+    .final-cta-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* 17. Footer */
+    footer {
+      background-color: var(--cacao);
+      color: var(--cream);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 80px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(250, 246, 240, 0.5);
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col a {
+      font-size: 0.85rem;
+      color: rgba(250, 246, 240, 0.6);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover {
+      color: var(--cream);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-bottom .foot-copy {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: rgba(250, 246, 240, 0.4);
+    }
+
+    .footer-bottom .foot-tagline {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--gold-dark);
+    }
+
+    /* Logo Animation Section */
+    .logo-anim-sec {
+      background: var(--cacao);
+      padding: clamp(80px, 12vw, 160px) 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .logo-anim-globe {
+      position: relative;
+      width: clamp(200px, 30vw, 360px);
+      height: clamp(200px, 30vw, 360px);
+      margin: 0 auto 40px;
+    }
+
+    .logo-anim-globe svg {
+      width: 100%;
+      height: 100%;
+      animation: globeSpin 18s linear infinite;
+    }
+
+    @keyframes globeSpin {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+
+    /* CSS Globe using 2D rings */
+    .globe-ring {
+      position: absolute;
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .globe-ring:nth-child(1) { width: 100%; height: 100%; animation: pulseLarge 6s ease-in-out infinite; }
+    .globe-ring:nth-child(2) { width: 80%; height: 40%; animation: pulseMid 6s ease-in-out 0.4s infinite; }
+    .globe-ring:nth-child(3) { width: 60%; height: 25%; animation: pulseMid 6s ease-in-out 0.8s infinite; }
+    .globe-ring:nth-child(4) { width: 40%; height: 14%; animation: pulseMid 6s ease-in-out 1.2s infinite; }
+    .globe-ring:nth-child(5) { width: 100%; height: 4px; margin-top: -2px; border-radius: 0; border-color: rgba(197, 168, 128, 0.6); }
+
+    @keyframes pulseLarge {
+      0%, 100% { border-color: rgba(197, 168, 128, 0.25); }
+      50% { border-color: rgba(197, 168, 128, 0.6); }
+    }
+    @keyframes pulseMid {
+      0%, 100% { border-color: rgba(197, 168, 128, 0.15); }
+      50% { border-color: rgba(197, 168, 128, 0.4); }
+    }
+
+    .globe-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px var(--gold), 0 0 40px rgba(197, 168, 128, 0.4);
+      animation: dotPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px var(--gold), 0 0 40px rgba(197, 168, 128, 0.4); }
+      50% { transform: translate(-50%, -50%) scale(1.5); box-shadow: 0 0 30px var(--gold), 0 0 60px rgba(197, 168, 128, 0.6); }
+    }
+
+    /* Orbit dots */
+    .orbit-dot {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    .logo-anim-wordmark {
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-anim-wordmark .logo-large {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 12vw, 9rem);
+      letter-spacing: 0.3em;
+      color: var(--cream);
+      font-weight: 300;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .logo-large .letter-o {
+      position: relative;
+      display: inline-block;
+      color: var(--gold);
+    }
+
+    .logo-large .letter-o::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 1px solid rgba(197, 168, 128, 0.4);
+      border-radius: 50%;
+      animation: orbitRing 4s linear infinite;
+    }
+
+    @keyframes orbitRing {
+      0% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+      50% { transform: scale(1.15) rotate(180deg); opacity: 1; }
+      100% { transform: scale(1) rotate(360deg); opacity: 0.5; }
+    }
+
+    .logo-anim-tagline {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-top: 20px;
+    }
+
+    .logo-anim-sub {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      color: rgba(250, 246, 240, 0.6);
+      margin-top: 12px;
+    }
+
+    /* Brand Identity Section */
+    .brand-identity-sec {
+      background: var(--cream);
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .brand-identity-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .brand-identity-header h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      color: var(--cacao);
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--sand);
+      margin-bottom: 2px;
+    }
+
+    .brand-block {
+      background: var(--cream);
+      padding: clamp(48px, 6vw, 80px);
+    }
+
+    .brand-block.dark {
+      background: var(--cacao);
+      color: var(--cream);
+    }
+
+    .brand-block.plum {
+      background: var(--plum);
+      color: var(--cream);
+    }
+
+    .brand-block-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 32px;
+    }
+
+    .brand-block.dark .brand-block-label,
+    .brand-block.plum .brand-block-label {
+      color: var(--gold);
+    }
+
+    /* Color Palette swatches */
+    .color-swatches {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .swatch-color {
+      width: clamp(48px, 6vw, 72px);
+      height: clamp(48px, 6vw, 72px);
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.06);
+    }
+
+    .swatch-name {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cacao);
+      text-align: center;
+    }
+
+    .brand-block.dark .swatch-name,
+    .brand-block.plum .swatch-name {
+      color: rgba(250,246,240,0.7);
+    }
+
+    /* Typography specimens */
+    .type-specimen {
+      margin-bottom: 32px;
+    }
+
+    .type-specimen:last-child {
+      margin-bottom: 0;
+    }
+
+    .type-specimen-name {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+
+    .brand-block.dark .type-specimen-name,
+    .brand-block.plum .type-specimen-name {
+      color: rgba(197, 168, 128, 0.7);
+    }
+
+    .type-specimen-display {
+      line-height: 1.1;
+    }
+
+    .brand-logo-display {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      letter-spacing: 0.25em;
+      font-weight: 300;
+      color: var(--cream);
+    }
+
+    .brand-tagline-display {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+      font-style: italic;
+      color: rgba(250, 246, 240, 0.75);
+      margin-top: 16px;
+      line-height: 1.4;
+    }
+
+    .brand-full-row {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      background: var(--sand);
+    }
+
+    /* Animation reveal */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+    }
+
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .origna-idea {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .idea-image {
+        grid-column: span 1;
+      }
+      .standard-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .curated-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .makers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .split-sec {
+        grid-template-columns: 1fr;
+      }
+      .split-panel {
+        min-height: 60vh;
+      }
+      .split-center-box {
+        top: auto;
+        bottom: -30px;
+        transform: translateX(-50%);
+      }
+      .image-wall-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+      .item-col-3, .item-col-4, .item-col-5, .item-col-7, .item-col-8 {
+        grid-column: span 3;
+      }
+      .item-col-6 {
+        grid-column: span 6;
+      }
+      .trust-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .trust-left {
+        position: relative;
+        top: 0;
+      }
+      .discovery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .discovery-results {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .world-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .world-right-floating {
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 20px 24px;
+      }
+      nav {
+        display: none; /* Mobile menu collapsed */
+      }
+      .standard-grid {
+        grid-template-columns: 1fr;
+      }
+      .curated-grid {
+        grid-template-columns: 1fr;
+      }
+      .makers-grid {
+        grid-template-columns: 1fr;
+      }
+      .discovery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .discovery-results {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .image-wall-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .item-col-3, .item-col-4, .item-col-5, .item-col-6, .item-col-7, .item-col-8 {
+        grid-column: span 1;
+      }
+      .poster-card {
+        width: 320px;
+        height: 480px;
+        padding: 30px;
+      }
+      .poster-card h3 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Nav -->
+  <header>
+    <a href="#top" class="logo">ORIGNA</a>
+    <nav>
+      <ul>
+        <li><a href="#curated">Curation</a></li>
+        <li><a href="#origins">Origins</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#chocolate">Chocolate</a></li>
+        <li><a href="#makers">Makers</a></li>
+        <li><a href="#standards">Our Standard</a></li>
+      </ul>
+    </nav>
+    <a href="#curated" class="nav-cta">Explore Shop</a>
+  </header>
+
+  <!-- 01. Hero Section -->
+  <section class="hero" id="top">
+    <!-- Background Image -->
+    <div class="hero-bg">
+      <img src="img/hero-bg.jpg" alt="Premium artisan chocolates, coffee and spreads from around the world" onload="this.closest('.hero').classList.add('loaded')">
+    </div>
+    <!-- Cinematic Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Content -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">Curated · Authentic · India-bound</div>
+      <h1>TASTE<br>HAS AN<br>ORIGIN.</h1>
+      <div class="hero-divider"></div>
+      <p>From exceptional makers around the world<br>to curious tables across India.</p>
+      <div class="hero-ctas">
+        <a href="#curated" class="btn btn-white">Discover Origna →</a>
+        <a href="#origins" class="btn-text">Explore By Origin</a>
+      </div>
+    </div>
+
+    <div class="hero-bottom-strip"></div>
+    <div class="hero-coords">50°50'N 4°21'E · 46°31'N 6°38'E · 45°04'N 7°40'E</div>
+    <div class="hero-scroll-line"></div>
+  </section>
+
+  <!-- 02. The Origna Idea -->
+  <section class="scroll-reveal">
+    <div class="wrap origna-idea">
+      <div class="idea-text-left">
+        <h2>THE WORLD HAS A TASTE.</h2>
+      </div>
+      <div class="idea-text-right">
+        <p>Some flavours are born from a place. Some are shaped by generations. Some can only be understood when you know where they began.</p>
+        <p class="body">ORIGNA brings these discoveries to India — authentic international products chosen for their provenance, character, and exceptional quality. We are not a manufacturer, nor do we repackage. We are the trusted bridge bringing the world's finest makers directly to you.</p>
+        <div>
+          <a href="#trust" class="btn">Why Origna →</a>
+        </div>
+      </div>
+      <div class="idea-image">
+        <img src="img/curated-surface.jpg" alt="Artisan chocolates, spreads, and coffee arranged on natural slate">
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. The Origin Map -->
+  <section class="origin-map-sec scroll-reveal" id="origins">
+    <div class="wrap">
+      <div class="map-header">
+        <div class="eyebrow" style="justify-content: center;">Interactive Atlas</div>
+        <h2>EVERY FLAVOUR, AN ORIGIN.</h2>
+        <p>Follow the flavours back to where they began.</p>
+      </div>
+
+      <div class="map-container">
+        <!-- Minimal World Map Outline -->
+        <svg class="world-map-svg" viewBox="0 0 800 400">
+          <!-- Stylized continents background -->
+          <rect width="800" height="400" fill="none"/>
+          
+          <!-- Abstract representation of the world grid -->
+          <path d="M50 150 L 750 150 M50 250 L 750 250" stroke="rgba(28, 18, 12, 0.05)" stroke-width="1"/>
+          
+          <!-- USA Coordinate -->
+          <circle cx="160" cy="140" r="5" fill="#A58B65" class="map-dot" id="dot-usa" onclick="selectCountry('usa')"/>
+          <!-- Belgium Coordinate -->
+          <circle cx="395" cy="110" r="5" fill="#A58B65" class="map-dot" id="dot-belgium" onclick="selectCountry('belgium')"/>
+          <!-- France Coordinate -->
+          <circle cx="390" cy="120" r="5" fill="#A58B65" class="map-dot" id="dot-france" onclick="selectCountry('france')"/>
+          <!-- Switzerland Coordinate -->
+          <circle cx="400" cy="125" r="5" fill="#A58B65" class="map-dot" id="dot-switzerland" onclick="selectCountry('switzerland')"/>
+          <!-- Italy Coordinate -->
+          <circle cx="410" cy="135" r="5" fill="#A58B65" class="map-dot" id="dot-italy" onclick="selectCountry('italy')"/>
+          <!-- Japan Coordinate -->
+          <circle cx="650" cy="150" r="5" fill="#A58B65" class="map-dot" id="dot-japan" onclick="selectCountry('japan')"/>
+          
+          <!-- INDIA (Destination) -->
+          <circle cx="530" cy="190" r="8" fill="var(--gold)" class="map-dot india" id="dot-india"/>
+          <text x="530" y="215" font-family="Space Mono" font-size="9" fill="var(--cacao)" text-anchor="middle" letter-spacing="1">INDIA</text>
+          
+          <!-- Connection Paths -->
+          <path d="M160 140 Q 345 120, 530 190" class="route-line" id="route-usa"/>
+          <path d="M395 110 Q 462 130, 530 190" class="route-line" id="route-belgium"/>
+          <path d="M390 120 Q 460 140, 530 190" class="route-line" id="route-france"/>
+          <path d="M400 125 Q 465 145, 530 190" class="route-line" id="route-switzerland"/>
+          <path d="M410 135 Q 470 150, 530 190" class="route-line" id="route-italy"/>
+          <path d="M650 150 Q 590 160, 530 190" class="route-line" id="route-japan"/>
+        </svg>
+
+        <div class="map-route-text" id="route-announcement">Select an origin to trace its journey</div>
+
+        <!-- Dynamic Backstory Cards -->
+        <div class="map-story-card active" id="card-default">
+          <h4>Discover Provenance</h4>
+          <div class="country-meta">Global Curation</div>
+          <p>Click on any of the active gold nodes (USA, Belgium, France, Switzerland, Italy, Japan) to trace the animated shipping route back to India and reveal the regional curation details.</p>
+        </div>
+
+        <div class="map-story-card" id="card-usa">
+          <h4>UNITED STATES</h4>
+          <div class="country-meta">Gourmet Foods &amp; Craft Confections</div>
+          <p>From organic maple syrups to small-batch bean-to-bar chocolate makers in Brooklyn and San Francisco, we select gourmet products that combine rich heritage with bold contemporary flavors.</p>
+        </div>
+
+        <div class="map-story-card" id="card-belgium">
+          <h4>BELGIUM</h4>
+          <div class="country-meta">The Capital of Fine Chocolate</div>
+          <p>Belgium's chocolate legacy is rooted in unmatched craftsmanship and refined recipes. We import authentic pralines, truffles, and bars from historical chocolatiers who preserve strict traditional standards.</p>
+        </div>
+
+        <div class="map-story-card" id="card-france">
+          <h4>FRANCE</h4>
+          <div class="country-meta">Chocolate &amp; Pâtisserie Excellence</div>
+          <p>French chocolate makers focus on terroir and precise roasting profiles. From Valrhona's single-origin bars to artisan creations, French confections represent the peak of culinary sophistication.</p>
+        </div>
+
+        <div class="map-story-card" id="card-switzerland">
+          <h4>SWITZERLAND</h4>
+          <div class="country-meta">Alpine Milk Chocolate &amp; Confiserie</div>
+          <p>Renowned for producing the smoothest milk chocolate in the world using pure alpine milk. We source exceptional confectionery from boutique Swiss confectioners who prioritize quality over mass production.</p>
+        </div>
+
+        <div class="map-story-card" id="card-italy">
+          <h4>ITALY</h4>
+          <div class="country-meta">Coffee &amp; Gourmet Spreads</div>
+          <p>We source Italy's legendary wood-roasted espresso beans alongside decadent, velvety hazelnut and pistachio spreads made with premium Piedmont hazelnuts and Sicilian pistachios.</p>
+        </div>
+
+        <div class="map-story-card" id="card-japan">
+          <h4>JAPAN</h4>
+          <div class="country-meta">Precision Confectionery &amp; Matcha Finds</div>
+          <p>Japan brings an unmatched obsession with texture, balance, and delicate flavoring. We bring authentic Matcha chocolates, wafer bars, and boutique sweets that reflect Japanese culinary artistry.</p>
+        </div>
+      </div>
+
+      <div class="map-selector">
+        <button class="map-sel-btn active" onclick="selectCountry('usa')">USA</button>
+        <button class="map-sel-btn" onclick="selectCountry('belgium')">Belgium</button>
+        <button class="map-sel-btn" onclick="selectCountry('france')">France</button>
+        <button class="map-sel-btn" onclick="selectCountry('switzerland')">Switzerland</button>
+        <button class="map-sel-btn" onclick="selectCountry('italy')">Italy</button>
+        <button class="map-sel-btn" onclick="selectCountry('japan')">Japan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. What Origna Actually Does (Sticky Horizontal Scroll Timeline) -->
+  <section class="journey-sec" id="journey">
+    <div class="journey-sticky">
+      <div class="wrap journey-header">
+        <div class="eyebrow">The Import Pipeline</div>
+        <h2 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem);">WHAT ORIGNA ACTUALLY DOES</h2>
+      </div>
+      <div class="journey-track-container">
+        <div class="journey-track" id="journeyTrack">
+          
+          <div class="journey-card">
+            <div>
+              <div class="step-num">01 / DISCOVER</div>
+              <h3>We search beyond the obvious.</h3>
+            </div>
+            <p>Our curation team identifies exceptional international makers, focusing on those who refuse to compromise on quality and maintain clear regional heritage.</p>
+          </div>
+
+          <div class="journey-card">
+            <div>
+              <div class="step-num">02 / SELECT</div>
+              <h3>Every product earns its place.</h3>
+            </div>
+            <p>We test hundreds of chocolates, coffees, and spreads. Only products with exceptional flavor profiles and pure ingredients join the ORIGNA collection.</p>
+          </div>
+
+          <div class="journey-card">
+            <div>
+              <div class="step-num">03 / VERIFY</div>
+              <h3>Clear provenance &amp; authenticity.</h3>
+            </div>
+            <p>We verify the production origins, organic certifications, and fair-trade documentation directly with the makers. No counterfeit, no gray market.</p>
+          </div>
+
+          <div class="journey-card">
+            <div>
+              <div class="step-num">04 / IMPORT</div>
+              <h3>Cold-chain international transit.</h3>
+            </div>
+            <p>We directly manage the importation from European, American, and Japanese makers into India, avoiding third-party distributors who break handling standards.</p>
+          </div>
+
+          <div class="journey-card">
+            <div>
+              <div class="step-num">05 / PROTECT</div>
+              <h3>Temperature-controlled storage.</h3>
+            </div>
+            <p>Fine chocolate and coffee are delicate. We handle, store, and warehouse our entire collection under precise, temperature-controlled environments in India.</p>
+          </div>
+
+          <div class="journey-card">
+            <div>
+              <div class="step-num">06 / DELIVER</div>
+              <h3>From the origin to your doorstep.</h3>
+            </div>
+            <p>Packaged in thermal insulated boxes with cold packs, we deliver the world's most delicate gourmet products directly to homes across India in perfect condition.</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="journey-progress-bar">
+        <div class="journey-progress-fill" id="journeyProgress"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. The Origna Standard -->
+  <section class="dark-section scroll-reveal" id="standards">
+    <div class="wrap">
+      <div class="standard-header">
+        <div class="eyebrow">The Standard</div>
+        <h2>WHAT MAKES ORIGNA DIFFERENT</h2>
+        <p style="color: var(--sand); font-family: var(--serif); font-size: 1.2rem;">Exceptional products deserve exceptional standards.</p>
+      </div>
+
+      <div class="standard-grid">
+        <div class="standard-card">
+          <div>
+            <div class="card-label">Sourcing</div>
+            <h3>AUTHENTICALLY SOURCED</h3>
+            <p>Direct relationships with official international brand houses. Zero repackaged or unlicensed goods.</p>
+          </div>
+          <div class="hidden-info">Verified original imports only.</div>
+        </div>
+
+        <div class="standard-card">
+          <div>
+            <div class="card-label">Provenance</div>
+            <h3>ORIGIN VERIFIED</h3>
+            <p>Every chocolate bar, coffee bean bag, and spread jar features traceable coordinates and maker details.</p>
+          </div>
+          <div class="hidden-info">Coordinates visible on every page.</div>
+        </div>
+
+        <div class="standard-card">
+          <div>
+            <div class="card-label">Logistics</div>
+            <h3>QUALITY ASSURED</h3>
+            <p>End-to-end active temperature monitoring. Products never melt, bloom, or lose fresh aroma.</p>
+          </div>
+          <div class="hidden-info">Maintained at constant 18°C.</div>
+        </div>
+
+        <div class="standard-card">
+          <div>
+            <div class="card-label">Shipping</div>
+            <h3>DELIVERED WITH CARE</h3>
+            <p>Insulated thermal delivery boxes designed to survive Indian summer transits safely.</p>
+          </div>
+          <div class="hidden-info">100% freshness guarantee.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. The World, Curated -->
+  <section class="scroll-reveal" id="curated">
+    <div class="wrap">
+      <div class="curated-header">
+        <div class="eyebrow">The Categories</div>
+        <h2>THE WORLD, CURATED.</h2>
+      </div>
+
+      <div class="curated-grid">
+        <div class="curated-card">
+          <img src="img/chocolate-detail.jpg" alt="Premium gourmet dark chocolate bars">
+          <div class="curated-card-overlay">
+            <span>01 / Chocolates</span>
+            <h3>CHOCOLATE</h3>
+            <p>Exceptional cacao from exceptional makers. Explore bean-to-bar and single-origin creations. →</p>
+          </div>
+        </div>
+
+        <div class="curated-card">
+          <img src="img/coffee-detail.jpg" alt="Artisan Italian coffee bag on stone counter">
+          <div class="curated-card-overlay">
+            <span>02 / Blends</span>
+            <h3>COFFEE</h3>
+            <p>Origins worth waking up for. Freshly roasted whole beans and single-estate coffee bags. →</p>
+          </div>
+        </div>
+
+        <div class="curated-card">
+          <img src="img/spread-social.jpg" alt="Decadent gourmet spread jars">
+          <div class="curated-card-overlay">
+            <span>03 / Spoons</span>
+            <h3>SPREADS</h3>
+            <p>Small indulgences from around the world. Hazelnut, pistachio, and dark cocoa creams. →</p>
+          </div>
+        </div>
+
+        <div class="curated-card">
+          <img src="img/gift-detail.jpg" alt="Elegant curated gourmet products gift box">
+          <div class="curated-card-overlay">
+            <span>04 / Gift Sets</span>
+            <h3>GOURMET</h3>
+            <p>Discover something you haven't tasted before. Fine ingredients and curated luxury sets. →</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07. Chocolate — The Hero Category -->
+  <section class="plum-section scroll-reveal" id="chocolate">
+    <div class="wrap">
+      <div class="choc-section-header">
+        <div class="eyebrow" style="color: var(--sand);">Hero Sourcing</div>
+        <h2>CHOCOLATE HAS A LANGUAGE OF ITS OWN.</h2>
+        <p>From deep cacao to delicate milk chocolate, discover exceptional bars, pralines, and creations from makers around the world.</p>
+      </div>
+
+      <div class="choc-scroller">
+        
+        <!-- Product Card 1 -->
+        <div class="choc-story-card">
+          <div class="choc-story-img">
+            <img src="img/chocolate-detail.jpg" alt="Neuhaus Belgian Dark Chocolate">
+          </div>
+          <div class="choc-meta-row">
+            <span class="choc-country">🇧🇪 Belgium</span>
+            <span class="choc-brand">Neuhaus</span>
+          </div>
+          <div class="choc-details">
+            <h4>Dark Intense 72%</h4>
+            <p>Meticulously crafted Belgian dark chocolate bar featuring hints of roasted nuts and a long, elegant bitter-sweet finish.</p>
+            <span class="choc-flavour-tag">Deep cacao · roasted · elegant</span>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="choc-story-card">
+          <div class="choc-story-img">
+            <img src="img/curated-surface.jpg" alt="Valrhona French Chocolate">
+          </div>
+          <div class="choc-meta-row">
+            <span class="choc-country">🇫🇷 France</span>
+            <span class="choc-brand">Valrhona</span>
+          </div>
+          <div class="choc-details">
+            <h4>Noir Guanaja 70%</h4>
+            <p>A benchmark French dark chocolate known for its intense complexity, floral aromas, and balanced fruit-forward acidity.</p>
+            <span class="choc-flavour-tag">Intense cacao · floral · balanced</span>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="choc-story-card">
+          <div class="choc-story-img">
+            <img src="img/hero-table.jpg" alt="Läderach Swiss Chocolate">
+          </div>
+          <div class="choc-meta-row">
+            <span class="choc-country">🇨🇭 Switzerland</span>
+            <span class="choc-brand">Läderach</span>
+          </div>
+          <div class="choc-details">
+            <h4>Alpine Milk &amp; Hazelnut</h4>
+            <p>Smooth, velvety Swiss milk chocolate loaded with whole roasted caramelized hazelnuts sourced from certified estates.</p>
+            <span class="choc-flavour-tag">Creamy · alpine milk · smooth</span>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="choc-story-card">
+          <div class="choc-story-img">
+            <img src="img/chai-chocolate.jpg" alt="Royce Japanese Matcha Chocolate">
+          </div>
+          <div class="choc-meta-row">
+            <span class="choc-country">🇯🇵 Japan</span>
+            <span class="choc-brand">Royce'</span>
+          </div>
+          <div class="choc-details">
+            <h4>Matcha Bar</h4>
+            <p>Unique Japanese chocolate infused with premium Uji Matcha, delivering a perfect contrast of sweet white chocolate and earthy green tea.</p>
+            <span class="choc-flavour-tag">Sweet · creamy · earthy matcha</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 08. Meet The Makers -->
+  <section class="scroll-reveal" id="makers">
+    <div class="wrap">
+      <div class="makers-header">
+        <div class="eyebrow">Artisans &amp; Heritage</div>
+        <h2>MEET THE MAKERS.</h2>
+      </div>
+
+      <div class="makers-grid">
+        <div class="maker-card">
+          <div>
+            <div class="maker-role">The Chocolatier</div>
+            <h3>Michel Cluizel</h3>
+            <p>Crafting single-estate chocolate bars in Normandy, France since 1948. Selected for their pure cocoa butter commitment.</p>
+          </div>
+          <div class="maker-origin-tag">Normandy, France</div>
+        </div>
+
+        <div class="maker-card">
+          <div>
+            <div class="maker-role">The Roaster</div>
+            <h3>Gardelli Coffee</h3>
+            <p>World-award-winning specialty coffee roaster from Forlì, Italy. Sourced by Origna for their rare, traceably purchased single-origins.</p>
+          </div>
+          <div class="maker-origin-tag">Emilia-Romagna, Italy</div>
+        </div>
+
+        <div class="maker-card">
+          <div>
+            <div class="maker-role">The Maker</div>
+            <h3>Nocciolata Rigoni</h3>
+            <p>A family brand in Asiago cultivating premium organic hazelnut spreads. Chosen for their palm-oil-free, slow churn process.</p>
+          </div>
+          <div class="maker-origin-tag">Veneto, Italy</div>
+        </div>
+
+        <div class="maker-card">
+          <div>
+            <div class="maker-role">The Craft</div>
+            <h3>Minimal bean-to-bar</h3>
+            <p>Tokyo-based craftsmen redefining chocolate textures by retaining coarse sugar crystals and raw cocoa bean integrity.</p>
+          </div>
+          <div class="maker-origin-tag">Tokyo, Japan</div>
+        </div>
+      </div>
+
+      <div class="makers-cta-row">
+        <a href="#curated" class="btn">Discover the Artisans →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09. India × The World -->
+  <section class="split-sec scroll-reveal" style="padding:0; overflow:hidden;">
+    <!-- Thin vertical seam line -->
+    <div class="split-divider"></div>
+
+    <div class="split-panel">
+      <img src="img/festive-thali.jpg" alt="Gourmet chocolate served on traditional Indian steel thali">
+      <div class="split-panel-content">
+        <div class="eyebrow" style="color: var(--sand);">The Experience</div>
+        <h3>The Indian Table</h3>
+        <p>Whether it's pairing a rich 80% dark French chocolate with afternoon cutting chai, or sharing a jar of Italian pistachio spread around a bustling Gen-Z breakfast table, Origna respects the contexts where flavours truly come alive.</p>
+      </div>
+    </div>
+
+    <div class="split-panel">
+      <img src="img/curated-surface.jpg" alt="Authentic imported packaging flatlay">
+      <div class="split-panel-content">
+        <div class="eyebrow" style="color: var(--sand);">The Origin</div>
+        <h3>The World Sourced</h3>
+        <p>We preserve the real packaging, the real stories, and the real voices of international artisans. We do not manufacture or relabel. We believe premium chocolate, coffee, and spreads belong to their makers first.</p>
+      </div>
+    </div>
+
+    <!-- Floating center badge — sits on the seam, well clear of panel text -->
+    <div class="split-divider-label">
+      <h4>THE WORLD,<br>BROUGHT CLOSER.</h4>
+      <p>Global Sourcing · Indian Experience</p>
+    </div>
+  </section>
+
+  <!-- 10. Branding Image Wall -->
+  <section class="scroll-reveal">
+    <div class="wrap">
+      <div class="image-wall-header">
+        <div class="eyebrow" style="justify-content: center;">Candid Chronicles</div>
+        <h2>THE ORIGNA IMAGE WALL</h2>
+      </div>
+
+      <div class="image-wall-grid">
+        
+        <!-- Image 1 -->
+        <div class="wall-item item-col-7 item-row-2">
+          <img src="img/hero-table.jpg" alt="Elegant dining table with imported goods">
+          <div class="wall-caption">01 / India × Chocolate</div>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="wall-item item-col-5 item-row-2">
+          <img src="img/festive-thali.jpg" alt="Premium imported chocolate bar on steel thali">
+          <div class="wall-caption">02 / The Thali</div>
+        </div>
+
+        <!-- Image 3 -->
+        <div class="wall-item item-col-4 item-row-2">
+          <img src="img/chai-chocolate.jpg" alt="Chai glass and chocolate blocks">
+          <div class="wall-caption">03 / Chai × Chocolate</div>
+        </div>
+
+        <!-- Image 4 -->
+        <div class="wall-item item-col-8 item-row-2">
+          <img src="img/spread-social.jpg" alt="Friends sharing chocolate spread at dining table">
+          <div class="wall-caption">04 / Spread Culture</div>
+        </div>
+
+        <!-- Image 5 -->
+        <div class="wall-item item-col-6 item-row-2">
+          <img src="img/coffee-detail.jpg" alt="Young professional coffee packet setup">
+          <div class="wall-caption">05 / Coffee Ritual</div>
+        </div>
+
+        <!-- Image 6 -->
+        <div class="wall-item item-col-6 item-row-2">
+          <img src="img/gift-detail.jpg" alt="Family giving luxury imported gourmet chocolate gift box">
+          <div class="wall-caption">06 / The Gift</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Poster Series — Real Designed Posters -->
+  <section class="poster-sec scroll-reveal">
+    <div class="wrap" style="margin-bottom: 40px;">
+      <div class="eyebrow">Campaign Art</div>
+      <h2>THE ORIGNA POSTER SERIES</h2>
+      <p style="font-family: var(--serif); font-size: 1.1rem; color: var(--sand); margin-top: 12px; font-style: italic;">Drag to explore. Each poster tells a different chapter of the Origna story.</p>
+    </div>
+    <div class="poster-scroller" id="posterScroller">
+      
+      <!-- Poster 1 — Taste Has An Origin -->
+      <div class="poster-img-card">
+        <img src="img/poster-taste-origin.jpg" alt="TASTE HAS AN ORIGIN. — ORIGNA Campaign Poster">
+        <div class="poster-img-caption">Campaign 01 · Taste Has An Origin</div>
+      </div>
+
+      <!-- Poster 2 — Every Flavour An Origin -->
+      <div class="poster-img-card">
+        <img src="img/poster-every-flavour.jpg" alt="EVERY FLAVOUR, AN ORIGIN. — ORIGNA Campaign Poster">
+        <div class="poster-img-caption">Campaign 02 · Every Flavour, An Origin</div>
+      </div>
+
+      <!-- Poster 3 — World to India -->
+      <div class="poster-img-card">
+        <img src="img/poster-world-india.jpg" alt="World → Origin → Discovery → India — ORIGNA Journey Poster">
+        <div class="poster-img-caption">Campaign 03 · The Origna Journey</div>
+      </div>
+
+      <!-- Poster 4 — Street Wall Hero Photo as poster -->
+      <div class="poster-img-card">
+        <img src="img/street-wall-hero.jpg" alt="ORIGNA wall mural in Indian street — Campaign Photography" style="height:680px; width:auto;">
+        <div class="poster-img-caption">Campaign 04 · Street · Taste Has An Origin</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11b. Logo Animation Section -->
+  <section class="logo-anim-sec scroll-reveal" id="brand">
+    <div class="logo-anim-globe">
+      <!-- CSS animated globe rings -->
+      <div class="globe-ring"></div>
+      <div class="globe-ring"></div>
+      <div class="globe-ring"></div>
+      <div class="globe-ring"></div>
+      <div class="globe-ring"></div>
+      <div class="globe-dot"></div>
+    </div>
+
+    <div class="logo-anim-wordmark">
+      <div class="logo-large">
+        <span class="letter-o">O</span><span>RIGNA</span>
+      </div>
+      <div class="logo-anim-tagline">Taste Has An Origin</div>
+      <div class="logo-anim-sub">The world, brought closer. Every flavour, an origin.</div>
+    </div>
+  </section>
+
+  <!-- 11c. Brand Identity Section -->
+  <section class="brand-identity-sec scroll-reveal">
+    <div class="wrap">
+      <div class="brand-identity-header">
+        <div class="eyebrow" style="justify-content:center;">Brand Identity</div>
+        <h2>THE ORIGNA DESIGN SYSTEM</h2>
+      </div>
+    </div>
+
+    <!-- Row 1: Logo + Typography -->
+    <div class="brand-grid">
+      <!-- Logo lockup -->
+      <div class="brand-block plum">
+        <div class="brand-block-label">Logotype</div>
+        <div class="brand-logo-display">ORIGNA</div>
+        <div class="brand-tagline-display">
+          Taste Has An Origin.<br>
+          <span style="font-size: 0.75em; opacity: 0.65;">Every Flavour, An Origin.</span>
+        </div>
+      </div>
+
+      <!-- Typography -->
+      <div class="brand-block">
+        <div class="brand-block-label">Typography</div>
+        
+        <div class="type-specimen">
+          <div class="type-specimen-name">Display / Headings</div>
+          <div class="type-specimen-display" style="font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); color: var(--cacao); font-weight: 300; line-height:1.1;">Cormorant Garamond</div>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-specimen-name">Body / UI</div>
+          <div class="type-specimen-display" style="font-family: var(--sans); font-size: 1rem; color: var(--cacao-light); letter-spacing: 0.02em;">Inter — Trusted bridge between worlds and palates.</div>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-specimen-name">Labels / Coordinates</div>
+          <div class="type-specimen-display" style="font-family: var(--mono); font-size: 0.72rem; color: var(--gold-dark); letter-spacing: 0.2em; text-transform: uppercase;">Space Mono — 45°04'N 7°40'E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: Colour Palette (3 blocks) -->
+    <div class="brand-full-row">
+      <!-- Cream block -->
+      <div class="brand-block" style="background: var(--cream);">
+        <div class="brand-block-label">Light Palette</div>
+        <div class="color-swatches">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #FAF6F0;"></div>
+            <div class="swatch-name">Cream<br>#FAF6F0</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #F3ECE0;"></div>
+            <div class="swatch-name">Parchment<br>#F3ECE0</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #E8DCC4;"></div>
+            <div class="swatch-name">Sand<br>#E8DCC4</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #C5A880;"></div>
+            <div class="swatch-name">Gold<br>#C5A880</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark block -->
+      <div class="brand-block dark">
+        <div class="brand-block-label">Dark Palette</div>
+        <div class="color-swatches">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #1C120C; border-color: rgba(255,255,255,0.1);"></div>
+            <div class="swatch-name">Cacao<br>#1C120C</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #2C1F18; border-color: rgba(255,255,255,0.1);"></div>
+            <div class="swatch-name">Dark<br>#2C1F18</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #3B1F2B; border-color: rgba(255,255,255,0.1);"></div>
+            <div class="swatch-name">Plum<br>#3B1F2B</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #A58B65; border-color: rgba(255,255,255,0.1);"></div>
+            <div class="swatch-name">Gold Dark<br>#A58B65</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brand principles -->
+      <div class="brand-block" style="background: var(--cream-dark);">
+        <div class="brand-block-label">Brand Values</div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="font-family: var(--serif); font-size: 1.15rem; color: var(--cacao); line-height: 1.4;">Authentic<br><span style="font-family: var(--sans); font-size: 0.8rem; color: rgba(28,18,12,0.55);">Unaltered. Untranslated. Genuine.</span></div>
+          <div style="font-family: var(--serif); font-size: 1.15rem; color: var(--cacao); line-height: 1.4;">Curated<br><span style="font-family: var(--sans); font-size: 0.8rem; color: rgba(28,18,12,0.55);">Chosen with intention and knowledge.</span></div>
+          <div style="font-family: var(--serif); font-size: 1.15rem; color: var(--cacao); line-height: 1.4;">Contextual<br><span style="font-family: var(--sans); font-size: 0.8rem; color: rgba(28,18,12,0.55);">Flavour lives within its culture.</span></div>
+          <div style="font-family: var(--serif); font-size: 1.15rem; color: var(--cacao); line-height: 1.4;">Trusted<br><span style="font-family: var(--sans); font-size: 0.8rem; color: rgba(28,18,12,0.55);">The bridge you can rely on.</span></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 12. Why Trust Origna Section (Sticky Card Stack) -->
+  <section class="trust-sec scroll-reveal" id="trust">
+    <div class="wrap trust-layout">
+      <div class="trust-left">
+        <div class="eyebrow">Trust System</div>
+        <h2>BEFORE IT REACHES YOU, IT PASSES THROUGH ORIGNA.</h2>
+      </div>
+      <div class="trust-stack">
+        
+        <div class="trust-stack-card">
+          <div class="card-num">01 / SOURCE</div>
+          <h3>Where did it come from?</h3>
+          <p>We source directly from licensed brand owners and original chocolate kitchens in Europe and Japan. Every batch is certified with official certificates of origin.</p>
+        </div>
+
+        <div class="trust-stack-card">
+          <div class="card-num">02 / AUTHENTICITY</div>
+          <h3>Is it genuine?</h3>
+          <p>We guarantee 100% genuine product formulations. Unlike gray-market sellers, Origna does not deal in near-expiry items or repackaged counterfeit goods.</p>
+        </div>
+
+        <div class="trust-stack-card">
+          <div class="card-num">03 / QUALITY</div>
+          <h3>How was it handled?</h3>
+          <p>Fine chocolate easily ruins if exposed to heat. Our cold-chain shipping maintains a strict temperature between 16°C and 19°C from the maker's cellar to our Indian hubs.</p>
+        </div>
+
+        <div class="trust-stack-card">
+          <div class="card-num">04 / ORIGIN</div>
+          <h3>Who made it?</h3>
+          <p>We provide full documentation and background on every chocolatier and roaster. We believe knowing the artisan makes the tasting experience more meaningful.</p>
+        </div>
+
+        <div class="trust-stack-card">
+          <div class="card-num">05 / DELIVERY</div>
+          <h3>How does it reach you?</h3>
+          <p>Every shipment is packaged in thermal foil liners with dry ice packs, guaranteeing your delicate chocolates arrive in solid, pristine bar form, even in peak Indian summer.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. If You Like This... Flavour Profiler -->
+  <section class="scroll-reveal">
+    <div class="wrap">
+      <div class="discovery-header">
+        <div class="eyebrow" style="justify-content: center;">Discovery Tool</div>
+        <h2>TELL US WHAT YOU LOVE.</h2>
+      </div>
+
+      <div class="discovery-grid">
+        <div class="flavour-card active" onclick="filterFlavour('dark')">
+          <h4>Dark &amp; Intense</h4>
+        </div>
+        <div class="flavour-card" onclick="filterFlavour('creamy')">
+          <h4>Smooth &amp; Creamy</h4>
+        </div>
+        <div class="flavour-card" onclick="filterFlavour('nutty')">
+          <h4>Nutty &amp; Roasted</h4>
+        </div>
+        <div class="flavour-card" onclick="filterFlavour('sweet')">
+          <h4>Sweet &amp; Playful</h4>
+        </div>
+        <div class="flavour-card" onclick="filterFlavour('bitter')">
+          <h4>Bitter &amp; Complex</h4>
+        </div>
+        <div class="flavour-card" onclick="filterFlavour('rich')">
+          <h4>Rich &amp; Indulgent</h4>
+        </div>
+      </div>
+
+      <div class="discovery-results" id="discoveryResults">
+        <!-- Results will be dynamically populated via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. The Origna World -->
+  <section class="origna-world-sec scroll-reveal">
+    <div class="wrap world-container">
+      <div class="world-left">
+        <h2>THERE'S MORE TO TASTE.</h2>
+        <a href="#curated" class="btn btn-gold">Explore the World →</a>
+      </div>
+      <div class="world-right-floating" id="floatingArea">
+        <div class="floating-card fc-1" data-speed="2">Chocolate</div>
+        <div class="floating-card fc-2" data-speed="-1.5">Coffee</div>
+        <div class="floating-card fc-3" data-speed="1.2">Spreads</div>
+        <div class="floating-card fc-4" data-speed="-2">Gifting</div>
+        <div class="floating-card fc-5" data-speed="1.8">Origins</div>
+        <div class="floating-card fc-6" data-speed="-1">Makers</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. Brand Manifesto -->
+  <section class="manifesto-sec scroll-reveal">
+    <div class="wrap manifesto-text">
+      <div class="eyebrow" style="justify-content: center; margin-bottom: 40px;">The Manifesto</div>
+      <p>We believe flavour has a history.<br>A place. A maker. A method. A culture.<br><br>We search the world for products worth discovering.<br>We bring them to India <em>authentically</em>.<br>We make their origins visible.<br>And we put exceptional flavour within reach.<br><br>This is <em>ORIGNA</em>.</p>
+      <div class="manifesto-footer-line">TASTE HAS AN ORIGIN.</div>
+    </div>
+  </section>
+
+  <!-- 16. Final Brand CTA -->
+  <section class="final-cta-sec">
+    <div class="final-cta-bg">
+      <img src="img/hero-table.jpg" alt="Elegant dining table setting close up">
+    </div>
+    <div class="wrap final-cta-content">
+      <h2>WHERE WILL YOUR NEXT FLAVOUR COME FROM?</h2>
+      <div class="final-cta-buttons">
+        <a href="#curated" class="btn btn-white">Explore Origna →</a>
+        <a href="#origins" class="btn btn-gold">Explore By Origin →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17. Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>ORIGNA</h3>
+          <p>The trusted bridge bringing exceptional international chocolates, coffee, spreads, and gourmet products to India.</p>
+        </div>
+        <div class="footer-col">
+          <h4>DISCOVER</h4>
+          <ul>
+            <li><a href="#chocolate">Chocolate</a></li>
+            <li><a href="#curated">Coffee</a></li>
+            <li><a href="#curated">Spreads</a></li>
+            <li><a href="#curated">Gourmet Gifts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul>
+            <li><a href="#origins">Countries</a></li>
+            <li><a href="#makers">Brands</a></li>
+            <li><a href="#makers">Makers</a></li>
+            <li><a href="#journey">Sourcing Pipeline</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>ORIGNA</h4>
+          <ul>
+            <li><a href="#standards">Our Standard</a></li>
+            <li><a href="#trust">Authenticity</a></li>
+            <li><a href="#trust">Quality Cold-Chain</a></li>
+            <li><a href="#top">Back to Top</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="foot-copy">© 2026 ORIGNA India. All rights reserved. Sourced globally, experienced authentically.</div>
+        <div class="foot-tagline">THE WORLD, TASTED DIFFERENTLY.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 01. Header background control & Hero right-strip parallax
+    const header = document.querySelector('header');
+    const heroRight = document.querySelector('.hero-right img');
+    
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      
+      // Header background on scroll
+      if (scrollPos > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // Hero right image — subtle scale-down on scroll (parallax feel)
+      if (heroRight && scrollPos < window.innerHeight) {
+        const scale = 1.04 - scrollPos * 0.00008;
+        heroRight.style.transform = `scale(${Math.max(1, scale)})`;
+      }
+    });
+
+    // 02. Scroll Reveal system
+    const revealEls = document.querySelectorAll('.scroll-reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach(el => io.observe(el));
+
+    // Trigger hero load animation
+    window.addEventListener('DOMContentLoaded', () => {
+      const heroEyebrow = document.querySelector('.hero-eyebrow');
+      const heroH1 = document.querySelector('.hero h1');
+      const heroDivider = document.querySelector('.hero-divider');
+      const heroP = document.querySelector('.hero p');
+      const heroCtas = document.querySelector('.hero-ctas');
+      const heroCoords = document.querySelector('.hero-coords');
+
+      requestAnimationFrame(() => {
+        if (heroEyebrow) { heroEyebrow.style.opacity = '1'; heroEyebrow.style.transform = 'translateY(0)'; }
+        if (heroH1) { heroH1.style.opacity = '1'; heroH1.style.transform = 'translateY(0)'; }
+        if (heroDivider) { heroDivider.style.opacity = '1'; }
+        if (heroP) { heroP.style.opacity = '1'; heroP.style.transform = 'translateY(0)'; }
+        if (heroCtas) { heroCtas.style.opacity = '1'; heroCtas.style.transform = 'translateY(0)'; }
+        if (heroCoords) { heroCoords.style.opacity = '1'; }
+      });
+
+      // Initialize flavour finder
+      filterFlavour('dark');
+    });
+
+    // 03. World Map Selector & Connection line animations
+    function selectCountry(country) {
+      // Toggle selector buttons
+      const buttons = document.querySelectorAll('.map-sel-btn');
+      buttons.forEach(btn => {
+        if (btn.textContent.toLowerCase() === country) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Toggle active states on map nodes
+      document.querySelectorAll('.map-dot').forEach(dot => {
+        if (dot.id === `dot-${country}`) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      // Deactivate all routes first
+      document.querySelectorAll('.route-line').forEach(line => {
+        line.classList.remove('active');
+      });
+
+      // Activate selected route line
+      const activeLine = document.getElementById(`route-${country}`);
+      if (activeLine) activeLine.classList.add('active');
+
+      // Update story cards
+      document.querySelectorAll('.map-story-card').forEach(card => {
+        card.classList.remove('active');
+      });
+      document.getElementById(`card-${country}`).classList.add('active');
+      
+      // Update track statement
+      document.getElementById('route-announcement').textContent = `${country.toUpperCase()} → INDIA ROUTE ACTIVE`;
+    }
+
+    // 04. What Origna Does Horizontal scroll track animation
+    const journeySection = document.querySelector('.journey-sec');
+    const journeyTrack = document.getElementById('journeyTrack');
+    const journeyProgress = document.getElementById('journeyProgress');
+
+    window.addEventListener('scroll', () => {
+      if (!journeySection || !journeyTrack) return;
+      
+      const secRect = journeySection.getBoundingClientRect();
+      const totalScroll = journeySection.offsetHeight - window.innerHeight;
+      const scrollPassed = -secRect.top;
+
+      if (scrollPassed >= 0 && scrollPassed <= totalScroll) {
+        const percent = (scrollPassed / totalScroll);
+        
+        // Translate the track horizontally
+        const maxTranslate = journeyTrack.offsetWidth - window.innerWidth + 160; // offset spacing
+        journeyTrack.style.transform = `translateX(${-percent * maxTranslate}px)`;
+        
+        // Progress bar width
+        journeyProgress.style.width = `${percent * 100}%`;
+      } else if (scrollPassed < 0) {
+        journeyTrack.style.transform = `translateX(0px)`;
+        journeyProgress.style.width = `0%`;
+      }
+    });
+
+    // 13. Flavour Profile Dynamic filtering data
+    const productData = {
+      dark: [
+        { brand: "Valrhona", country: "France", name: "Noir Guanaja 70%", desc: "Rich and bitter, featuring floral accents and a crisp snap." },
+        { brand: "Domori", country: "Italy", name: "Criollo 80% Blend", desc: "Rare Venezuelan cocoa beans offering unmatched roundness." },
+        { brand: "Michel Cluizel", country: "France", name: "Los Anconès Dark", desc: "Single-estate organic dark bar with hints of red berries." }
+      ],
+      creamy: [
+        { brand: "Läderach", country: "Switzerland", name: "Alpine Milk Classic", desc: "Silky texture made with Swiss mountain milk." },
+        { brand: "Neuhaus", country: "Belgium", name: "Milk Salted Caramel", desc: "Soft praline center with sea salt crystals." },
+        { brand: "Royce'", country: "Japan", name: "Matcha White Bar", desc: "Creamy white chocolate base loaded with earthy green tea." }
+      ],
+      nutty: [
+        { brand: "Rigoni", country: "Italy", name: "Nocciolata Crema", desc: "Organic hazelnut spread, high cacao butter, roasted finish." },
+        { brand: "Venchi", country: "Italy", name: "Pistachio Gianduja", desc: "Decadent cream made with Piedmont pistachios and hazelnuts." },
+        { brand: "Valrhona", country: "France", name: "Hazelnut Praliné", desc: "Rich chocolate paste filled with caramelized hazelnut shards." }
+      ],
+      sweet: [
+        { brand: "Royce'", country: "Japan", name: "Potatochip Chocolate", desc: "Salty potato chips coated in creamy milk chocolate." },
+        { brand: "Neuhaus", country: "Belgium", name: "Praliné Selection Box", desc: "Assorted traditional Belgian sweet confections." },
+        { brand: "Läderach", country: "Switzerland", name: "FrischSchoggi Honey", desc: "Swiss milk chocolate slabs containing honey almond nougat." }
+      ],
+      bitter: [
+        { brand: "Domori", country: "Italy", name: "100% Cacao Pure", desc: "Zero added sugar. Pure unadulterated cocoa bean richness." },
+        { brand: "Valrhona", country: "France", name: "Abinao 85% Intense", desc: "Tannic and deeply woody profile for cocoa aficionados." },
+        { brand: "Michel Cluizel", country: "France", name: "Noir Infini 99%", desc: "Extremely complex bitter cocoa with deep earthy undertones." }
+      ],
+      rich: [
+        { brand: "Rigoni", country: "Italy", name: "Cacao Dark Spread", desc: "Intense dairy-free organic cocoa cream spread." },
+        { brand: "Venchi", country: "Italy", name: "Chocoviar Praline Set", desc: "Layered luxury pralines covered in dark chocolate micro-pearls." },
+        { brand: "Gardelli", country: "Italy", name: "Miscela Classica Espresso", desc: "Premium whole coffee beans carrying notes of dark fudge." }
+      ]
+    };
+
+    function filterFlavour(flavour) {
+      // Toggle card active states
+      const cards = document.querySelectorAll('.flavour-card');
+      cards.forEach(card => {
+        if (card.getAttribute('onclick').includes(flavour)) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+
+      // Populate results
+      const resultsContainer = document.getElementById('discoveryResults');
+      resultsContainer.innerHTML = '';
+      
+      const items = productData[flavour] || [];
+      items.forEach((item, index) => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'disc-item';
+        itemEl.innerHTML = `
+          <div>
+            <div class="disc-meta">${item.country.toUpperCase()} · ${item.brand.toUpperCase()}</div>
+            <h5>${item.name}</h5>
+            <p>${item.desc}</p>
+          </div>
+          <a href="#curated" class="disc-link">Discover Product →</a>
+        `;
+        resultsContainer.appendChild(itemEl);
+        
+        // Trigger micro-delay for clean fade-in
+        setTimeout(() => {
+          itemEl.classList.add('show');
+        }, index * 100);
+      });
+    }
+
+    // 14. Floating Cards Parallax
+    const floatingArea = document.getElementById('floatingArea');
+    const floatingCards = document.querySelectorAll('.floating-card');
+
+    window.addEventListener('scroll', () => {
+      if (!floatingArea) return;
+      const rect = floatingArea.getBoundingClientRect();
+      const scrolledPast = window.innerHeight - rect.top;
+
+      if (scrolledPast > 0 && rect.bottom > 0) {
+        floatingCards.forEach(card => {
+          const speed = parseFloat(card.getAttribute('data-speed'));
+          card.style.transform = `translateY(${scrolledPast * speed * 0.05}px)`;
+        });
+      }
+    });
+
+    // 15. Poster scroller drag-to-scroll
+    const posterScroller = document.getElementById('posterScroller');
+    if (posterScroller) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      posterScroller.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - posterScroller.offsetLeft;
+        scrollLeft = posterScroller.scrollLeft;
+      });
+      posterScroller.addEventListener('mouseleave', () => { isDown = false; });
+      posterScroller.addEventListener('mouseup', () => { isDown = false; });
+      posterScroller.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - posterScroller.offsetLeft;
+        const walk = (x - startX) * 1.6;
+        posterScroller.scrollLeft = scrollLeft - walk;
+      });
+    }
+  </script>
+</body>
+</html>
